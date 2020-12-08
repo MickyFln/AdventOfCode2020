@@ -1,17 +1,16 @@
-// https://adventofcode.com/2020/day/1/input
 ;(() => {
-  const arr202001 = document
+  const inputArray = document
     .querySelector('pre')
-    .innerText.split('\n')
-    .map((n: string) => parseInt(n, 10))
-    .filter(n => !!n)
+    .innerText.trim()
+    .split('\n')
+    .map((n: string) => parseInt(n.trim(), 10))
     .sort((a, b) => a - b)
 
   function findSum(expectedSum: number, array: number[]): number[] {
     let rtl = array.length - 1
     let ltr = 0
-    while (arr202001[rtl] + arr202001[ltr] !== expectedSum && rtl > ltr) {
-      if (arr202001[rtl] + arr202001[ltr] > expectedSum) {
+    while (inputArray[rtl] + inputArray[ltr] !== expectedSum && rtl > ltr) {
+      if (inputArray[rtl] + inputArray[ltr] > expectedSum) {
         rtl--
       } else {
         ltr++
@@ -24,17 +23,20 @@
     }
   }
 
-  const twoElements = findSum(2020, arr202001)
+  const twoElements = findSum(2020, inputArray)
   if (twoElements.length) {
     console.log('Part 1:')
-    console.log('Sum: ', arr202001[twoElements[0]] + arr202001[twoElements[1]])
+    console.log(
+      'Sum: ',
+      inputArray[twoElements[0]] + inputArray[twoElements[1]]
+    )
     console.log(
       'Product: ',
-      arr202001[twoElements[0]] * arr202001[twoElements[1]]
+      inputArray[twoElements[0]] * inputArray[twoElements[1]]
     )
   }
 
-  const arrCopy = [...arr202001]
+  const arrCopy = [...inputArray]
   let counter = 0
 
   while (arrCopy.length > 0) {
@@ -44,15 +46,15 @@
       console.log('Part 2:')
       console.log(
         'Sum: ',
-        arr202001[counter] +
-          arr202001[possibleSolution[0] + counter] +
-          arr202001[possibleSolution[1] + counter]
+        inputArray[counter] +
+          inputArray[possibleSolution[0] + counter] +
+          inputArray[possibleSolution[1] + counter]
       )
       console.log(
         'Product: ',
-        arr202001[counter] *
-          arr202001[possibleSolution[0] + counter] *
-          arr202001[possibleSolution[1] + counter]
+        inputArray[counter] *
+          inputArray[possibleSolution[0] + counter] *
+          inputArray[possibleSolution[1] + counter]
       )
     }
     counter++

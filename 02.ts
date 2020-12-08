@@ -1,10 +1,10 @@
 ;(() => {
-  // https://adventofcode.com/2020/day/2/input
-  const arr202002 = document
+  const inputArray = document
     .querySelector('pre')
-    .innerText.split('\n')
-    .filter(n => !!n)
+    .innerText.trim()
+    .split('\n')
     .map(n => {
+      n.trim()
       const info = n.split(': ')
       const obj = {
         password: info[1],
@@ -44,18 +44,18 @@
     return (foo && !bar) || (!foo && bar)
   }
 
-  const validPwds1 = arr202002.filter(checkPassword1)
-  const validPwds2 = arr202002.filter(checkPassword2)
+  const validPwds1 = inputArray.filter(checkPassword1)
+  const validPwds2 = inputArray.filter(checkPassword2)
   console.log(
     'Part 1: Out of',
-    arr202002.length,
+    inputArray.length,
     'given passwords',
     validPwds1.length,
     'are valid'
   )
   console.log(
     'Part 2: Out of',
-    arr202002.length,
+    inputArray.length,
     'given passwords',
     validPwds2.length,
     'are valid'

@@ -1,17 +1,14 @@
 ;(() => {
-  const array = document.querySelector('pre').innerText.trim().split('\n')
-
-  // array.map(rule => {
-  //   const ruleObj: any = {}
-  //   const colorSeparation = rule.split(' bags contain ')
-  //   ruleObj.bagColor = colorSeparation[0]
-  // })
-  const splittedArray = array.map(rule => rule.split(' bags contain '))
+  const inputArray = document
+    .querySelector('pre')
+    .innerText.trim()
+    .split('\n')
+    .map(rule => rule.split(' bags contain '))
 
   function findParentBags(searchStrings: Set<string>): Set<string> {
     const pb = new Set<string>()
     searchStrings.forEach(search => {
-      splittedArray
+      inputArray
         .filter(rule => rule[1].includes(search))
         .map(rule => rule[0])
         .forEach(color => pb.add(color))
@@ -27,7 +24,7 @@
   console.log('Possible nummber of parental bags is', possibleBags.size)
 
   function sumChildrenBags(color: string): number {
-    const possibleChildBags = splittedArray.find(rule =>
+    const possibleChildBags = inputArray.find(rule =>
       rule[0].includes(color)
     )[1]
     if (possibleChildBags === 'no other bags.') {

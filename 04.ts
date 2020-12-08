@@ -1,8 +1,8 @@
 ;(() => {
-  const arr202004 = document
+  const inputArray = document
     .querySelector('pre')
-    .innerText.split('\n\n')
-    .filter(n => !!n)
+    .innerText.trim()
+    .split('\n\n')
     .map(p => {
       return p.replaceAll('\n', ' ').split(' ')
     })
@@ -15,7 +15,7 @@
       return pp
     })
 
-  const validPassportCount = arr202004
+  const validPassportCount = inputArray
     .filter(p => p.byr && p.iyr && p.eyr && p.hgt && p.hcl && p.ecl && p.pid)
     .filter(p => {
       const birthYear = parseInt(p.byr, 10)
