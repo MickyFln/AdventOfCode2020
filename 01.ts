@@ -9,8 +9,8 @@
   function findSum(expectedSum: number, array: number[]): number[] {
     let rtl = array.length - 1
     let ltr = 0
-    while (inputArray[rtl] + inputArray[ltr] !== expectedSum && rtl > ltr) {
-      if (inputArray[rtl] + inputArray[ltr] > expectedSum) {
+    while (array[rtl] + array[ltr] !== expectedSum && rtl > ltr) {
+      if (array[rtl] + array[ltr] > expectedSum) {
         rtl--
       } else {
         ltr++
