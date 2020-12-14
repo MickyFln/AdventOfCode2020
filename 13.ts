@@ -36,11 +36,11 @@
   let increment = 1
   let timestamp = 0
 
-  input[1].split(',').forEach((busId, index) => {
+  input[1].split(',').forEach((busId, requestedDelay) => {
     if (busId !== 'x') {
       const busIdNum = parseInt(busId, 10)
 
-      while ((timestamp + index) % busIdNum !== 0) {
+      while (timestamp % busIdNum !== requestedDelay) {
         timestamp += increment
       }
       increment *= busIdNum
