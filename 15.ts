@@ -2,7 +2,7 @@
   const arrSize = 5000
   function loadArray(): number[] {
     return document
-      .querySelector<HTMLElement>('.puzzle-input')
+      .querySelector('pre')
       .innerText.trim()
       .split(',')
       .map(line => {
