@@ -16,6 +16,7 @@
   initValues.forEach((value, round) => index.set(value, round + 1))
   let guessingValue = initValues[initValues.length - 1]
   index.delete(guessingValue)
+  
   const startingTime = Date.now()
   for (let round = 7; round < 30000001; round++) {
     const newValue = index.has(guessingValue)
